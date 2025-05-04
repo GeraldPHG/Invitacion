@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sobre Interactivo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .envelope-icon, .image-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .envelope-icon {
+      font-size: 200px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .envelope-icon.hide {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+      pointer-events: none;
+    }
+
+    .image-box {
+      opacity: 0;
+      z-index: 1;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-box.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="envelope" class="envelope-icon">📩</div>
+  <img id="image" class="image-box" src="https://cdn-icons-png.freepik.com/512/2175/2175188.png" alt="Mensaje">
+</div>
+
+<script>
+  const envelope = document.getElementById('envelope');
+  const image = document.getElementById('image');
+
+  envelope.addEventListener('click', () => {
+    envelope.classList.add('hide');
+
+    setTimeout(() => {
+      image.classList.add('show');
+    }, 500); // Espera a que el sobre desaparezca antes de mostrar la imagen
+  });
+</script>
+
+</body>
+</html>
