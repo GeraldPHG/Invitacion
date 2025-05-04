@@ -37,12 +37,20 @@
       margin-top: 20px;
       transition: opacity 0.6s ease, transform 0.6s ease;
       z-index: 2;
+      animation: pulse 1s infinite;
     }
 
     .envelope-icon.hide {
       opacity: 0;
       transform: scale(0.5);
       pointer-events: none;
+      animation: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     .canva-box {
@@ -80,7 +88,7 @@
 <body>
 
 <div class="container">
-  <div id="envelope" class="envelope-icon">📩</div>
+  <div id="envelope" class="envelope-icon">📬🔔</div>
   
   <div id="canvaContent" class="canva-box">
     <div class="canva-embed">
