@@ -72,13 +72,13 @@
 
 <script>
   const envelope = document.getElementById('envelope');
-  const image = document.getElementById('image');
+  const style = document.getElementById('style');
 
   envelope.addEventListener('click', () => {
     envelope.classList.add('hide');
 
     setTimeout(() => {
-      image.classList.add('show');
+      style.classList.add('show');
     }, 500); // Espera a que el sobre desaparezca antes de mostrar la imagen
   });
 </script>
